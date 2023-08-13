@@ -1,0 +1,19 @@
+name: "Okteto wake"
+description: "wake Okteto Cloud namespace"
+inputs:
+  namespace: 
+    description: 'If present, the namespace scope for this action. If not specified, it will use the current context'
+    required: false
+  working-directory:
+    description: "Working directory, defaults to the root of the repo"
+    required: false
+  
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  args:
+    - ${{ inputs.namespace }}
+    - ${{ inputs.working-directory }}
+branding:
+  color: 'green'
+  icon: 'arrow-right-circle'
